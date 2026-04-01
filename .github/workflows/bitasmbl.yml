@@ -1,0 +1,15 @@
+name: Bitasmbl Validation
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Validate project
+        run: echo "Running Bitasmbl validation..."
