@@ -66,10 +66,10 @@ jobs:
 
       - name: Send to backend
         run: |
-          curl -i -X POST https://1c6c-176-221-143-53.ngrok-free.app/projects/evaluate-code-diff \
-            -H "Content-Type: application/json" \
-            -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}" \
-            -d @- <<EOF
+    curl -X POST https://whatever.com/projects/evaluate-code-diff \
+      -H "Content-Type: application/json" \
+      -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}" \
+      -d @- <<EOF
 {
   "projectId": ${{ steps.meta.outputs.project_id }},
   "requirementId": ${{ steps.meta.outputs.requirement_id }},
