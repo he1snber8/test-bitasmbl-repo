@@ -64,22 +64,24 @@ jobs:
 
       - name: Send to backend
         run: |
-          # Assigning to local shell variables for convenience
-          PROJECT_ID=${{ steps.meta.outputs.project_id }}
-          REQUIREMENT_ID=${{ steps.meta.outputs.requirement_id }}
+          # 1. Assign to shell variables first
+          # We use quotes here to handle any spaces/special chars in the metadata
+          PROJECT_ID="${{ steps.meta.outputs.project_id }}"
+          REQUIREMENT_ID="${{ steps.meta.outputs.requirement_id }}"
           REPO="${{ github.repository }}"
           SHA="${{ github.sha }}"
-          DIFF=${{ steps.diff.outputs.diff }}
+          DIFF='${{ steps.diff.outputs.diff }}'
 
+          # 2. Use 'EOF' (quoted) to prevent "Bad Substitution"
           curl -X POST https://whatever.com/projects/evaluate-code-diff \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}" \
-            -d @- <<EOF
-          {
-            "projectId": $PROJECT_ID,
-            "requirementId": $REQUIREMENT_ID,
-            "repo": "$REPO",
-            "commitSha": "$SHA",
-            "diff": $DIFF
-          }
-          EOF
+            -d @- <<'EOF'
+              {
+                "projectId": $PROJECT_ID,
+                "requirementId": $REQUIREMENT_ID,
+                "repo": "$REPO",
+                "commitSha": "$SHA",
+                "diff": $DIFF
+              }
+              EOF
