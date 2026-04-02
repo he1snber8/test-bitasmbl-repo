@@ -31,7 +31,6 @@
 #       - name: Validate project
 #         run: echo "Running Bitasmbl validation..."
 
-
 name: Bitasmbl Evaluate Diff
 
 on:
@@ -59,21 +58,28 @@ jobs:
         id: diff
         run: |
           # Get diff and use jq to handle JSON string escaping properly
-          DIFF=$(git diff HEAD^ HEAD)
-          DIFF_ESCAPED=$(printf '%s' "$DIFF" | jq -Rs .)
+          DIFF_CONTENT=$(git diff HEAD^ HEAD)
+          DIFF_ESCAPED=$(printf '%s' "$DIFF_CONTENT" | jq -Rs .)
           echo "diff=$DIFF_ESCAPED" >> $GITHUB_OUTPUT
 
       - name: Send to backend
         run: |
+          # Assigning to local shell variables for convenience
+          PROJECT_ID=${{ steps.meta.outputs.project_id }}
+          REQUIREMENT_ID=${{ steps.meta.outputs.requirement_id }}
+          REPO="${{ github.repository }}"
+          SHA="${{ github.sha }}"
+          DIFF=${{ steps.diff.outputs.diff }}
+
           curl -X POST https://whatever.com/projects/evaluate-code-diff \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}" \
             -d @- <<EOF
           {
-            "projectId": ${{ steps.meta.outputs.project_id }},
-            "requirementId": ${{ steps.meta.outputs.requirement_id }},
-            "repo": "${{ github.repository }}",
-            "commitSha": "${{ github.sha }}",
-            "diff": ${{ steps.diff.outputs.diff }}
+            "projectId": $PROJECT_ID,
+            "requirementId": $REQUIREMENT_ID,
+            "repo": "$REPO",
+            "commitSha": "$SHA",
+            "diff": $DIFF
           }
           EOF
