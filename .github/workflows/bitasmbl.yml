@@ -52,30 +52,28 @@ jobs:
         run: |
           PROJECT_ID=$(jq -r '.projectId' bitasmbl.json)
           REQUIREMENT_ID=$(jq -r '.requirementId' bitasmbl.task.json)
-
           echo "project_id=$PROJECT_ID" >> $GITHUB_OUTPUT
           echo "requirement_id=$REQUIREMENT_ID" >> $GITHUB_OUTPUT
 
       - name: Get git diff
         id: diff
         run: |
+          # Get diff and use jq to handle JSON string escaping properly
           DIFF=$(git diff HEAD^ HEAD)
           DIFF_ESCAPED=$(printf '%s' "$DIFF" | jq -Rs .)
-
           echo "diff=$DIFF_ESCAPED" >> $GITHUB_OUTPUT
 
       - name: Send to backend
         run: |
-    curl -X POST https://whatever.com/projects/evaluate-code-diff \
-      -H "Content-Type: application/json" \
-      -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}" \
-      -d @- <<EOF
-{
-  "projectId": ${{ steps.meta.outputs.project_id }},
-  "requirementId": ${{ steps.meta.outputs.requirement_id }},
-  "repo": "${{ github.repository }}",
-  "commitSha": "${{ github.sha }}",
-  "diff": ${{ steps.diff.outputs.diff }}
-}
-EOF
-
+          curl -X POST https://whatever.com/projects/evaluate-code-diff \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}" \
+            -d @- <<EOF
+          {
+            "projectId": ${{ steps.meta.outputs.project_id }},
+            "requirementId": ${{ steps.meta.outputs.requirement_id }},
+            "repo": "${{ github.repository }}",
+            "commitSha": "${{ github.sha }}",
+            "diff": ${{ steps.diff.outputs.diff }}
+          }
+          EOF
