@@ -15,6 +15,22 @@
 #         run: echo "Running Bitasmbl validation..."
 
 
+# name: Bitasmbl Validation
+
+# on:
+#   push:
+#     branches: [main]
+
+# jobs:
+#   validate:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - uses: actions/checkout@v3
+
+#       - name: Validate project
+#         run: echo "Running Bitasmbl validation..."
+
 name: Bitasmbl Evaluate Diff
 
 on:
@@ -52,10 +68,13 @@ jobs:
           curl -X POST https://1c6c-176-221-143-53.ngrok-free.app/projects/evaluate-code-diff \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}" \
-            -d "{
-              \"projectId\": ${{ steps.meta.outputs.project_id }},
-              \"requirementId\": ${{ steps.meta.outputs.requirement_id }},
-              \"repo\": \"${{ github.repository }}\",
-              \"commitSha\": \"${{ github.sha }}\",
-              \"diff\": ${{ steps.diff.outputs.diff }}
-            }"
+            -d @- <<EOF
+            {
+              "projectId": ${{ steps.meta.outputs.project_id }},
+              "requirementId": ${{ steps.meta.outputs.requirement_id }},
+              "repo": "${{ github.repository }}",
+              "commitSha": "${{ github.sha }}",
+              "diff": ${{ steps.diff.outputs.diff }}
+            }
+            EOF
+
