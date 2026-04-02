@@ -1,36 +1,17 @@
-# name: Bitasmbl Validation
-
-# on:
-#   push:
-#     branches: [main]
-
-# jobs:
-#   validate:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - uses: actions/checkout@v3
-
-#       - name: Validate project
-#         run: echo "Running Bitasmbl validation..."
-
-name: Debug Diff
+name: Bitasmbl Validation
 
 on:
   push:
+    branches: [main]
 
 jobs:
-  show-diff:
+  validate:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
+      - uses: actions/checkout@v3
 
-      - name: Show git diff
-        run: |
-          echo "=== DIFF START ==="
-          git diff HEAD^ HEAD
-          echo "=== DIFF END ==="
+      - name: Validate project
+        run: echo "Running Bitasmbl validation..."
+
+
