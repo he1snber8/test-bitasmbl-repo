@@ -70,12 +70,12 @@ jobs:
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}" \
             -d @- <<EOF
-            {
-              "projectId": ${{ steps.meta.outputs.project_id }},
-              "requirementId": ${{ steps.meta.outputs.requirement_id }},
-              "repo": "${{ github.repository }}",
-              "commitSha": "${{ github.sha }}",
-              "diff": ${{ steps.diff.outputs.diff }}
-            }
-            EOF 
+{
+  "projectId": ${{ steps.meta.outputs.project_id }},
+  "requirementId": ${{ steps.meta.outputs.requirement_id }},
+  "repo": "${{ github.repository }}",
+  "commitSha": "${{ github.sha }}",
+  "diff": ${{ steps.diff.outputs.diff }}
+}
+EOF
 
