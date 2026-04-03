@@ -17,8 +17,8 @@ function App() {
         </div>
         <div>
           <h1>
-            Get started, Hello ooo, again, and again yeah, and fucking agaaain!,
-            and, guess, again! its never ending, haha, lol, bruh, insta
+            Get started, Hello ooo, again, and again yeah, and fucking agaaain!
+            looool and, guess, again! its never ending, haha, lol, bruh, insta
             password, dunno, blyaaat, brah, fuck. damnnn, thats a no no, haha
             lol, what good is bread, money in ur palm dont make u real, haha,
             bitch
