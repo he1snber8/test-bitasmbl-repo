@@ -19,8 +19,9 @@ function App() {
           <h1>
             Get started, Hello ooo, again, and again yeah, and fucking agaaain!,
             and, guess, again! its never ending, haha, lol, bruh, insta
-            password, dunno, blyaaat, brah, fuck. damn, thats a no no, haha lol,
-            what good is bread, money in ur palm dont make u real, haha, bitch
+            password, dunno, blyaaat, brah, fuck. damnnn, thats a no no, haha
+            lol, what good is bread, money in ur palm dont make u real, haha,
+            bitch
           </h1>
           <p>
             Edit <code>src/App.jsx</code> and saveasdasd to test, bleeead, baby
