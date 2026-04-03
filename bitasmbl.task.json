@@ -1,6 +1,6 @@
 {
   "requirementId": 776,
   "files": [
-    "README.md"
+    "src/App.jsx"
   ]
 }
