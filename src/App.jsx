@@ -18,7 +18,7 @@ function App() {
         <div>
           <h1>
             Get started, Hello, again, and again, and fucking agaaain!, and,
-            guess, again! its never ending, haha
+            guess, again! its never ending, haha, lol again
           </h1>
           <p>
             Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
