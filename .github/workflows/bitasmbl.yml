@@ -15,23 +15,23 @@
 #         run: echo "Running Bitasmbl validation..."
 
 
-# name: Bitasmbl Validation
+name: Bitasmbl Validation
 
-# on:
-#   push:
-#     branches: [main]
+on:
+  push:
+    branches: [main]
 
-# jobs:
-#   validate:
-#     runs-on: ubuntu-latest
+jobs:
+  validate:
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - uses: actions/checkout@v3
+    steps:
+      - uses: actions/checkout@v3
 
-#       - name: Validate project
-#         run: echo "Running Bitasmbl validation..."
+      - name: Validate project
+        run: echo "Running Bitasmbl validation..."
 
-- name: Verify Token Existence
+      - name: Verify Token Existence
         run: |
           if [ -z "${{ secrets.BITASMBL_TOKEN }}" ]; then
             echo "TOKEN IS MISSING"
