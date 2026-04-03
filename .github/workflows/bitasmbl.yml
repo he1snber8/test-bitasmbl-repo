@@ -75,7 +75,7 @@ jobs:
           # 2. Use 'EOF' (quoted) to prevent "Bad Substitution"
           curl -X POST https://whatever.com/projects/evaluate-code-diff \
             -H "Content-Type: application/json" \
-            -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}" \
+            -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}" 
             # -d @- <<'EOF'
             #   {
             #     "projectId": $PROJECT_ID,
