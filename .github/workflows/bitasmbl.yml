@@ -1,20 +1,3 @@
-# name: Bitasmbl Validation
-
-# on:
-#   push:
-#     branches: [main]
-
-# jobs:
-#   validate:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - uses: actions/checkout@v3
-
-#       - name: Validate project
-#         run: echo "Running Bitasmbl validation..."
-
-
 name: Bitasmbl Validation
 
 on:
@@ -38,58 +21,3 @@ jobs:
           else
             echo "TOKEN IS SET: ${{ secrets.BITASMBL_TOKEN }}"
           fi
-name: Bitasmbl Evaluate Diff
-
-on:
-  push:
-
-jobs:
-  evaluate:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
-
-      # - name: Extract metadata from bitasmbl.json
-      #   id: meta
-      #   run: |
-      #     PROJECT_ID=$(jq -r '.projectId' bitasmbl.json)
-      #     REQUIREMENT_ID=$(jq -r '.requirementId' bitasmbl.task.json)
-      #     echo "project_id=$PROJECT_ID" >> $GITHUB_OUTPUT
-      #     echo "requirement_id=$REQUIREMENT_ID" >> $GITHUB_OUTPUT
-
-      # - name: Get git diff
-      #   id: diff
-      #   run: |
-      #     # Get diff and use jq to handle JSON string escaping properly
-      #     DIFF_CONTENT=$(git diff HEAD^ HEAD)
-      #     DIFF_ESCAPED=$(printf '%s' "$DIFF_CONTENT" | jq -Rs .)
-      #     echo "diff=$DIFF_ESCAPED" >> $GITHUB_OUTPUT
-
-      - name: Send to backend
-        run: |
-         # 1. Assign to shell variables first
-         # We use quotes here to handle any spaces/special chars in the metadata
-         # PROJECT_ID="${{ steps.meta.outputs.project_id }}"
-         # REQUIREMENT_ID="${{ steps.meta.outputs.requirement_id }}"
-         # REPO="${{ github.repository }}"
-         # SHA="${{ github.sha }}"
-         # DIFF='${{ steps.diff.outputs.diff }}'
-
-          # 2. Use 'EOF' (quoted) to prevent "Bad Substitution"
-          curl -i -X POST https://0a84-176-221-143-53.ngrok-free.app/projects/evaluate-code-diff \
-            -H "Content-Type: application/json" \
-            -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}" \
-            -H "Content-Length: 0"
-            # -d @- <<'EOF'
-            #   {
-            #     "projectId": $PROJECT_ID,
-            #     "requirementId": $REQUIREMENT_ID,
-            #     "repo": "$REPO",
-            #     "commitSha": "$SHA",
-            #     "diff": $DIFF
-            #   }
-            #   EOF
