@@ -9,7 +9,7 @@ function App() {
 
   localStorage.setItem("lol", 12);
   localStorage.removeItem("lol");
-  console.log("hello");
+  console.log("hello world!");
 
   return (
     <>
