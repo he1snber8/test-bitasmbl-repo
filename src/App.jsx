@@ -21,7 +21,7 @@ function App() {
             vibes in this bitxh~!! looool and, guess, again! its never ending,
             haha, lol, bruh, insta password, dunno, blyaaat, brah, fuck. damnnn,
             thats a no no, haha lol, what good is bread, money in ur palm dont
-            make u real, haha, bitch
+            make u real, haha, bitchasasas
           </h1>
           <p>
             Edit <code>src/App.jsx</code> and saveasdasd to test, bleeead, baby
