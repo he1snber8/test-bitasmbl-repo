@@ -1,8 +1,6 @@
 {
   "requirementId": 776,
   "files": [
-    "src/App.css",
-    "src/App.jsx",
-    "src/index.css"
+    "src/App.jsx"
   ]
 }
