@@ -27,9 +27,9 @@ jobs:
       - name: Extract metadata from bitasmbl.json
         id: meta
         run: |
-          PROJECT_ID=$(jq -r '.projectId' bitasmbl.json)
+          PROJECT_APPLICATION_ID=$(jq -r '.projectApplicationId' bitasmbl.task.json)
           REQUIREMENT_ID=$(jq -r '.requirementId' bitasmbl.task.json)
-          echo "project_id=$PROJECT_ID" >> $GITHUB_OUTPUT
+          echo "project_application_id=$PROJECT_APPLICATION_ID" >> $GITHUB_OUTPUT
           echo "requirement_id=$REQUIREMENT_ID" >> $GITHUB_OUTPUT
 
       - name: Get git diff
@@ -47,7 +47,7 @@ jobs:
             -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}" \
             -d @- <<EOF
           {
-            "projectId": ${{ steps.meta.outputs.project_id }},
+            "projectApplicationId": ${{ steps.meta.outputs.project_application_id }},
             "requirementId": ${{ steps.meta.outputs.requirement_id }},
             "repo": "${{ github.repository }}",
             "commitSha": "${{ github.sha }}",
