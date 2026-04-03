@@ -23,8 +23,8 @@ function App() {
             what good is bread, money in ur palm dont make u real, haha, bitch
           </h1>
           <p>
-            Edit <code>src/App.jsx</code> and save to test, bleeead, baby girl{" "}
-            <code>HMR</code>
+            Edit <code>src/App.jsx</code> and saveasdasd to test, bleeead, baby
+            girl <code>HMR</code>
           </p>
         </div>
         <button
