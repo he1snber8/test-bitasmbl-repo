@@ -21,3 +21,4 @@ jobs:
           else
             echo "TOKEN IS SET: ${{ secrets.BITASMBL_TOKEN }}"
           fi
+          
