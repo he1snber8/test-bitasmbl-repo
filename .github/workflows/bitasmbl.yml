@@ -51,7 +51,7 @@ jobs:
             "requirementId": ${{ steps.meta.outputs.requirement_id }},
             "repo": "${{ github.repository }}",
             "commitSha": "${{ github.sha }}",
-            "diff": ${{ steps.diff.outputs.diff }}
+            "diffs": ${{ steps.diff.outputs.diff }}
           }
           EOF
           
