@@ -38,7 +38,6 @@ jobs:
           else
             echo "TOKEN IS SET: ${{ secrets.BITASMBL_TOKEN }}"
           fi
-
 name: Bitasmbl Evaluate Diff
 
 on:
