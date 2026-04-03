@@ -64,13 +64,13 @@ jobs:
 
       - name: Send to backend
         run: |
-        # 1. Assign to shell variables first
-        # We use quotes here to handle any spaces/special chars in the metadata
-        # PROJECT_ID="${{ steps.meta.outputs.project_id }}"
-        # REQUIREMENT_ID="${{ steps.meta.outputs.requirement_id }}"
-        # REPO="${{ github.repository }}"
-        # SHA="${{ github.sha }}"
-        # DIFF='${{ steps.diff.outputs.diff }}'
+         # 1. Assign to shell variables first
+         # We use quotes here to handle any spaces/special chars in the metadata
+         # PROJECT_ID="${{ steps.meta.outputs.project_id }}"
+         # REQUIREMENT_ID="${{ steps.meta.outputs.requirement_id }}"
+         # REPO="${{ github.repository }}"
+         # SHA="${{ github.sha }}"
+         # DIFF='${{ steps.diff.outputs.diff }}'
 
           # 2. Use 'EOF' (quoted) to prevent "Bad Substitution"
           curl -i -X POST https://0a84-176-221-143-53.ngrok-free.app/projects/evaluate-code-diff \
