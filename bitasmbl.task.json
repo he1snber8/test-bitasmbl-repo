@@ -3,7 +3,6 @@
   "files": [
     "src/App.css",
     "src/App.jsx",
-    "src/index.css",
-    "src/main.jsx"
+    "src/index.css"
   ]
 }
