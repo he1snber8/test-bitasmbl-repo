@@ -7,7 +7,7 @@ import "./App.css";
 function App() {
   const [count, setCount] = useState(0);
 
-  localStorage.setItem("lol");
+  localStorage.setItem("lol", 12);
 
   return (
     <>
