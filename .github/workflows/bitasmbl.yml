@@ -31,6 +31,14 @@
 #       - name: Validate project
 #         run: echo "Running Bitasmbl validation..."
 
+- name: Verify Token Existence
+        run: |
+          if [ -z "${{ secrets.BITASMBL_TOKEN }}" ]; then
+            echo "TOKEN IS MISSING"
+          else
+            echo "TOKEN IS SET: ${{ secrets.BITASMBL_TOKEN }}"
+          fi
+
 name: Bitasmbl Evaluate Diff
 
 on:
