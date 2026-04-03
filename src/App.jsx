@@ -1,10 +1,3 @@
-/**
- * Bitasmbl Evaluation Result
- * ============================================================
- * Valid: ❌
- * ============================================================
- */
-
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
@@ -16,6 +9,7 @@ function App() {
 
   localStorage.setItem("lol", 12);
   localStorage.removeItem("lol");
+  console.log("hello");
 
   return (
     <>
