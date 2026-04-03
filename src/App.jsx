@@ -20,8 +20,8 @@ function App() {
             Get started, Hello oooasdsad, again, and again yeah, and fucking
             agaaain! vibes in this bitxh~!! looool andasa, guess, again! its
             never ending, haha, lol, bruh, insta password, dunno, blyaaat, brah,
-            fuck. damnnn, thats a no no, haha lol, what good is bread, money in
-            ur palm dont make u real, haha, bitchasasas
+            fuck. damnnn, thats a no no, haha lol, what gosadasdod is bread,
+            money in ur palm dont make u real, haha, bitchasasasasdasds
           </h1>
           sadsad
           <p>
