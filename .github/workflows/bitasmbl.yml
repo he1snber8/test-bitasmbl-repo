@@ -23,7 +23,7 @@ jobs:
           else
             echo "TOKEN IS SET: ${{ secrets.BITASMBL_TOKEN }}"
           fi
-          
+
       - name: Extract metadata from bitasmbl.json
         id: meta
         run: |
@@ -42,7 +42,7 @@ jobs:
 
       - name: Send to backend
         run: |
-          curl -X POST https://0a84-176-221-143-53.ngrok-free.app/projects/evaluate-code-diff \
+          curl -X POST https://4a1b-176-221-143-53.ngrok-free.app/projects/evaluate-code-diff \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}" \
             -d @- <<EOF
@@ -54,4 +54,3 @@ jobs:
             "diffs": ${{ steps.diff.outputs.diff }}
           }
           EOF
-          
