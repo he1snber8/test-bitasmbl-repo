@@ -2,6 +2,6 @@
   "projectApplicationId": 233,
   "requirementId": 776,
   "files": [
-    "src/App.jsx"
+    "src/store/"
   ]
 }
