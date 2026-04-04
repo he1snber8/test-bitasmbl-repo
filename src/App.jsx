@@ -8,7 +8,8 @@ function App() {
   const [count, setCount] = useState(0);
 
   localStorage.setItem("lol", 12);
-  localStorage.removeItem("lol");
+  // localStorage.removeItem("lol");
+  const hello = "woeld";
 
   return (
     <>
